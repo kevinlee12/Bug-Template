@@ -1,18 +1,23 @@
 def reporting():
     """Begins the script and presents the user with report selections.
        This script is designed to produce templates for Github issues.
-    """"
+    """
     print("Select the type of reporting:")
     print("1. Bug report")
     print("2. Enhancement report")
     type = input("Report type: ")
     if type == "1":
-        return bug_report()
+        bug_report()
     elif type == "2":
-        return enhancement_template()
+        enhancement_template()
     else:
         print("Not a valid selection")
         reporting()
+    repeat = input("Would you like to file another report? (Y/n): ")
+    if repeat == "Y" or repeat == "y":
+        reporting()
+    elif repeat == "N" or repeat == "n":
+        return
 
 def bug_report():
     """Bug report template generator"""
@@ -27,13 +32,18 @@ def bug_report():
         bug_type = "Security"
     else:
         bug_type = "Other"
-    screenshot_present
+    screenshot_present = input("Include Screenshot? (Y/n):")
+    if screenshot_present == "Y" or screenshot_present == "y":
+        include_screenshot = True
+    else:
+        include_screenshot = False
     print("\n \n<h5>Type: " + bug_type + " bug" + "</h5> \n")
     print("<h4>Machine Info:</h4> \nOS: Ubuntu 14.04.2 LTS \nBrowser: Google Chrome (64-bit)")
     print("<h5>Expected output:</h5> \n ... \n<h5>Actual output:</h5> \n ...")
     print("Steps to recreate:\n1. \n2. \n3.")
-    print("<h4>Additional information:</h4> \n ....")
-    print("<h4>Screenshots:</h4> \n ...")
+    print("\n<h4>Additional information:</h4> \n ....")
+    if include_screenshot:
+        print("<h4>Screenshots:</h4> \n ...")
 
 def enhancement_template():
     """Enhancement report template generator"""
@@ -50,8 +60,14 @@ def enhancement_template():
         enhancement_type = "Security"
     else:
         enhancement_type = "Other"
+    screenshot_present = input("Include Screenshot? (Y/n)")
+    if screenshot_present == "Y" or screenshot_present == "y":
+        include_screenshot = True
+    else:
+        include_screenshot = False
     print("\n \n<b>Type: " + enhancement_type + " Enhancement</b>\n")
     print("<h4>Description</h4> \n ...")
-    print("<h4>Screenshot</h4> \n ...")
+    if include_screenshot:
+        print("\n<h4>Screenshot</h4> \n ...")
 
 reporting()
