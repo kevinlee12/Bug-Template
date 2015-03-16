@@ -1,4 +1,7 @@
 def reporting():
+    """Begins the script and presents the user with report selections.
+       This script is designed to produce templates for Github issues.
+    """"
     print("Select the type of reporting:")
     print("1. Bug report")
     print("2. Enhancement report")
@@ -12,6 +15,7 @@ def reporting():
         reporting()
 
 def bug_report():
+    """Bug report template generator"""
     print("\nSelect type of bug: \n")
     print("1. Graphical bug")
     print("2. Security bug")
@@ -23,6 +27,7 @@ def bug_report():
         bug_type = "Security"
     else:
         bug_type = "Other"
+    screenshot_present
     print("\n \n<h5>Type: " + bug_type + " bug" + "</h5> \n")
     print("<h4>Machine Info:</h4> \nOS: Ubuntu 14.04.2 LTS \nBrowser: Google Chrome (64-bit)")
     print("<h5>Expected output:</h5> \n ... \n<h5>Actual output:</h5> \n ...")
@@ -31,6 +36,7 @@ def bug_report():
     print("<h4>Screenshots:</h4> \n ...")
 
 def enhancement_template():
+    """Enhancement report template generator"""
     print("\nSelect the type of enhancement:")
     print("1. User Flow")
     print("2. Graphical")
