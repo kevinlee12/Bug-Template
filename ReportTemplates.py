@@ -22,25 +22,33 @@ def reporting():
 def bug_report():
     """Bug report template generator"""
     print("\nSelect type of bug: \n")
-    print("1. Graphical bug")
-    print("2. Security bug")
-    print("3. Other bug")
+    print("1) Graphical bug")
+    print("2) Security bug")
+    print("3) Feature Bug")
+    print("4) Server error")
+    print("5) Other bug")
     type = input("Bug type is: ")
     if type == "1":
-        bug_type = "Graphical"
+        bug_type = "Graphical bug"
     elif type == "2":
-        bug_type = "Security"
+        bug_type = "Security bug"
+    elif type == "3":
+        bug_type = "Feature bug"
+    elif type == "4":
+        server_error = input("Server error code is: ")
+        bug_type = "Server error: " + server_error
     else:
-        bug_type = "Other"
+        bug_type = "Other bug"
     screenshot_present = input("Include Screenshot? (Y/n):")
     if screenshot_present == "Y" or screenshot_present == "y":
         include_screenshot = True
     else:
         include_screenshot = False
-    print("\n \n<h5>Type: " + bug_type + " bug" + "</h5> \n")
+    print("\n \n<h5>Type: " + bug_type + "</h5> \n")
+    print("<h4>Description:</h4> \n...\n")
     print("<h4>Machine Info:</h4> \nOS: Ubuntu 14.04.2 LTS \nBrowser: Google Chrome (64-bit)")
     print("<h5>Expected output:</h5> \n ... \n<h5>Actual output:</h5> \n ...")
-    print("Steps to recreate:\n1. \n2. \n3.")
+    print("\n<h4>Steps to recreate:</h4>\n1. \n2. \n3.")
     print("\n<h4>Additional information:</h4> \n ....")
     if include_screenshot:
         print("<h4>Screenshots:</h4> \n ...")
