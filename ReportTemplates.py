@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def reporting():
     """Begins the script and presents the user with report selections.
        This script is designed to produce templates for Github issues.
@@ -36,7 +38,7 @@ def bug_report():
         bug_type = "Feature bug"
     elif type == "4":
         server_error = input("Server error code is: ")
-        bug_type = "Server error: " + server_error
+        bug_type = "Server error " + server_error
     else:
         bug_type = "Other bug"
     screenshot_present = input("Include Screenshot? (Y/n):")
@@ -48,8 +50,8 @@ def bug_report():
     print("<h4>Description:</h4> \n...\n")
     print("<h4>Machine Info:</h4> \nOS: Ubuntu 14.04.2 LTS \nBrowser: Google Chrome (64-bit)")
     print("<h5>Expected output:</h5> \n ... \n<h5>Actual output:</h5> \n ...")
-    print("\n<h4>Steps to recreate:</h4>\n1. \n2. \n3.")
-    print("\n<h4>Additional information:</h4> \n ....")
+    print("\n<h4>Steps to recreate:</h4>\n1. \n2. \n3. \n")
+    print("\n<h4>Additional information:</h4> \n ....\n")
     if include_screenshot:
         print("<h4>Screenshots:</h4> \n ...")
 
