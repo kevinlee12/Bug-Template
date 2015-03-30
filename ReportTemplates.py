@@ -7,19 +7,23 @@ def reporting():
     print("Select the type of reporting:")
     print("1. Bug report")
     print("2. Enhancement report")
-    report_type = input("Report type: ")
-    assert type(report_type) == str, "You are not using Python 3!"
-    if report_type == "1":
-        bug_report()
-    elif report_type == "2":
-        enhancement_template()
-    else:
-        print("Not a valid selection")
-        reporting()
-    repeat = input("Would you like to file another report? (Y/n): ")
-    if repeat == "Y" or repeat == "y":
-        reporting()
-    elif repeat == "N" or repeat == "n":
+    try:
+        report_type = input("Report type: ")
+        assert type(report_type) == str, "You are not using Python 3!"
+        if report_type == "1":
+            bug_report()
+        elif report_type == "2":
+            enhancement_template()
+        else:
+            print("Not a valid selection")
+            reporting()
+        repeat = input("Would you like to file another report? (Y/n): ")
+        if repeat == "Y" or repeat == "y":
+            reporting()
+        elif repeat == "N" or repeat == "n":
+            return
+    except KeyboardInterrupt:
+        print("\nExiting reporting script")
         return
 
 def bug_report():
@@ -43,7 +47,7 @@ def bug_report():
     else:
         bug_is = "Other bug"
     expected_output_present = input("Include Expected Output? (Y/n):")
-    screenshot_present = input("Include Screenshot? (Y/n):")    
+    screenshot_present = input("Include Screenshot? (Y/n):")
     print("\n \n" + report_typing("Bug", bug_is) + "\n")
     print(description() + "\n")
     print(machine_info())
