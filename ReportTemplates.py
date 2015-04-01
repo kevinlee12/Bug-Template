@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 
 def reporting():
     """Begins the script and presents the user with report selections.
@@ -21,10 +22,10 @@ def reporting():
         if repeat == "Y" or repeat == "y":
             reporting()
         elif repeat == "N" or repeat == "n":
-            return
+            sys.exit()
     except KeyboardInterrupt:
         print("\nExiting reporting script")
-        return
+        sys.exit()
 
 def bug_report():
     """Bug report template generator"""
@@ -51,9 +52,9 @@ def bug_report():
     print("\n \n" + report_typing("Bug", bug_is) + "\n")
     print(description() + "\n")
     print(machine_info())
+    print("\n<h4>Steps to recreate:</h4>\n1. \n2. \n3. \n")
     if expected_output_present == "Y" or expected_output_present == "y":
         print("\n<h5>Expected output:</h5> \n ... \n<h5>Actual output:</h5> \n ...")
-    print("\n<h4>Steps to recreate:</h4>\n1. \n2. \n3. \n")
     print("\n<h4>Additional information:</h4> \n ....\n")
     print(screenshot(screenshot_present))
 
