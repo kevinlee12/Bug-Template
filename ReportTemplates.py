@@ -86,7 +86,7 @@ def enhancement_template():
         enhancement_is = "Other"
     screenshot_present = input("Include Screenshot? (Y/n)")
     print("=== Template ===\n")
-    print("\n \n" + report_typing("Enhancement", enhancement_is) + "\n\n")
+    print(report_typing("Enhancement", enhancement_is) + "\n\n")
     print(description())
     print(screenshot(screenshot_present))
 
@@ -105,7 +105,7 @@ def machine_info():
 def screenshot(include):
     if include == "y" or include == "Y":
         return "<h4>Screenshot</h4> \n ..."
-    return
+    return "\n===End Template==="
 
 
 def report_typing(bug_or_enhancement, specified_type):
