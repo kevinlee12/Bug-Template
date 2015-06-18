@@ -111,4 +111,5 @@ def screenshot(include):
 def report_typing(bug_or_enhancement, specified_type):
     return "<b>Type: " + specified_type + " " + bug_or_enhancement + "</b>"
 
+# Code is started here
 reporting()
